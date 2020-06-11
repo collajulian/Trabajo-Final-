@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1591905537 source:c:\users\tomas\desktop\prog ii\trabajo-final-\juego_main.cpp
+	"Juego.h"
+	<iostream>
+	<string.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1591905356 c:\users\tomas\desktop\prog ii\trabajo-final-\juego.h
+
+1591905743 source:c:\users\tomas\desktop\prog ii\trabajo-final-\juego.cpp
+	"Juego.h"
+	<iostream>
+	<string.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
