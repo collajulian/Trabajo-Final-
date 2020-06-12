@@ -9,12 +9,16 @@
 using namespace std;
 
 int main(){
+int N=0;
+cout<<"Ingrese el tamanio de la matriz\n";
+cin>>N;
 
-Juego a(3,5,5);
+Juego a(3,5,3);
 
 int aaux=0;
 char l;
 do{
+a.Llenar();
 a.Mostrar();
 cout<<"Ingrese tecla \n";
 cin>>l;

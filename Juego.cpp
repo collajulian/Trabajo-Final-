@@ -151,3 +151,4 @@ void Juego::Mostrar(){
          cout << "Esa tecla es incorrecta, intenta otra" << endl;
    }
 }
+
