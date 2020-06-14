@@ -71,8 +71,9 @@ srand(time (NULL));
         for(int j=0;j<N;j++){
           if (Tablero[i][j]==Tablero[0][0]){
             Tablero[i][j] = 2;
-          }else{
-          Tablero[i][j] = 0;
+          }
+            else{
+            Tablero[i][j] = 0;
           }
     }
 }
@@ -106,21 +107,24 @@ void Juego::Mostrar(){
     for(int i=0;i<N;i++){
         for(int j=0;j<N;j++){
            switch(Tablero[i][j]){
+
           case 0:
               cout<<"X ";
               break;
+
           case 1:
-              cout<<"B ";
+              cout<<"X ";
               break;
+
           case 2:
               cout<<"J ";
               break;
+
           case 3:
-              cout<<"T ";
+              cout<<"X ";
               break;
-
-
-    }}
+    }
+}
     cout<<endl;
 }
 }
@@ -129,9 +133,9 @@ void Juego::Mostrar(){
  int Juego::Mover(char m){
     m=toupper(m);
      switch(m) {
-      case 'N' :
+      case 'W' :
         if(X==0){
-            cout<<"No Puedes salir del tablero"<<endl;
+            cout<<"No Puedes salir del tablero\n";
             return -1;
         }
         if(Tablero[X-1][Y]== 0){
@@ -152,7 +156,7 @@ void Juego::Mostrar(){
 
       case 'S' :
             if(X==N-1){
-            cout<<"No Puedes salir del tablero"<<endl;
+            cout<<"No Puedes salir del tablero\n";
             return -1;
             }
             if(Tablero[X+1][Y]== 0){
@@ -171,9 +175,9 @@ void Juego::Mostrar(){
             }
          break;
 
-      case 'E' :
+      case 'D' :
             if(Y==N-1){
-            cout<<"No Puedes salir del tablero"<<endl;
+            cout<<"No Puedes salir del tablero\n";
             return -1;
             }
             if(Tablero[X][Y+1]== 0){
@@ -192,9 +196,9 @@ void Juego::Mostrar(){
             }
           break;
 
-      case 'O' :
+      case 'A' :
              if(Y==0){
-            cout<<"No Puedes salir del tablero"<<endl;
+            cout<<"No Puedes salir del tablero\n";
             return -1;
             }
             if(Tablero[X][Y-1]== 0){
@@ -213,27 +217,56 @@ void Juego::Mostrar(){
             }
          break;
       default :
-         cout << "Tecla incorrecta" << endl;
+         cout << "Tecla incorrecta\n";
    }
 }
 
 int Juego::explorar(int r){
-
 int u=0;
 
-for (int i=1;i<r;i++){
+for(int i=Y-r;i<Y+r+1;i++){
+    if(i<N && i>0){
+        if(Tablero [X][i]==1){
+            u++;
+        }
+    }
+}
 
-if ((Tablero[X][Y+i]== 1)&&(Y+i<N) ){
-    u++;
+for(int j=X-r;j<X+r+1;j++){
+    if(j<N && j>0){
+        if(Tablero [j][Y] ==1){
+            u++;
+        }
+    }
 }
-if ((Tablero[X][Y-i]==1) && (Y-i>=0) ){
-    u++;
-}
-if ((Tablero[X-i][Y]== 1)&&(X-i>=0)){
-    u++;
-}
-if ((Tablero[X+i][Y]== 1)&&(X+i<N)){
-    u++;
-}}
 return u;
 }
+
+void Juego::MostrarFinal(){
+
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+           switch(Tablero[i][j]){
+
+          case 0:
+              cout<<"X ";
+              break;
+
+          case 1:
+              cout<<"B ";
+              break;
+
+          case 2:
+              cout<<"J ";
+              break;
+
+          case 3:
+              cout<<"T ";
+              break;
+    }
+}
+    cout<<endl;
+}
+}
+
+

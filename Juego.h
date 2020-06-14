@@ -18,9 +18,7 @@ class Juego
         void Mostrar();
         int Mover(char);
         int explorar(int);
-
-
+        void MostrarFinal();
 };
-
 #endif
 
