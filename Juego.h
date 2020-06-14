@@ -12,10 +12,11 @@ class Juego
         Juego();
         Juego(int,int,int);
         Juego(const Juego&);
+        void setvidas(int);
+        int getvidas();
         void Llenar();
         void Mostrar();
         int Mover(char);
-
         int explorar(int);
 
 

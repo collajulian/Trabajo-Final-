@@ -32,6 +32,7 @@ for(int i=0;i<N;i++){
 }
 }
 
+
 Juego::Juego(const Juego& k){
 V=k.V;
 X=0;
@@ -49,6 +50,16 @@ for(int i=0;i<k.N;i++){
         Tablero [i][j];
     }
 }
+}
+
+
+void Juego::setvidas(int v){
+V=v;
+}
+
+
+int Juego::getvidas(){
+return V;
 }
 
 void Juego::Llenar(){
@@ -116,7 +127,6 @@ void Juego::Mostrar(){
 
 
  int Juego::Mover(char m){
-    int contV=V;
     m=toupper(m);
      switch(m) {
       case 'N' :
@@ -130,33 +140,16 @@ void Juego::Mostrar(){
             Tablero[X][Y]= 2;
             return 0;
         }if(Tablero[X-1][Y]== 1){
-            contV--;
-            return 1;
-            }if(contV==0){
+            V--;
+            if(V==0){
             return 2;
             }if(Tablero[X-1][Y]== 3){
             return 3;
             }
-         break;
-      case 'E' :
-            if(Y==N-1){
-            cout<<"No Puedes salir del tablero"<<endl;
-            return -1;
-            }
-            if(Tablero[X][Y+1]== 0){
-            Tablero[X][Y]= 0;
-            Y++;
-            Tablero[X][Y]= 2;
-            return 0;
-            }if(Tablero[X][Y+1]== 1){
-            contV--;
             return 1;
-            }if(contV==0){
-            return 2;
-            }if(Tablero[X][Y+1]== 3){
-            return 3;
             }
-          break;
+         break;
+
       case 'S' :
             if(X==N-1){
             cout<<"No Puedes salir del tablero"<<endl;
@@ -168,14 +161,37 @@ void Juego::Mostrar(){
             Tablero[X][Y]= 2;
             return 0;
             }if(Tablero[X+1][Y]== 1){
-            contV--;
-            return 1;
-            }if(contV==0){
+             V--;
+             if(V==0){
             return 2;
             }if(Tablero[X+1][Y]== 3){
             return 3;
             }
+            return 1;
+            }
          break;
+
+      case 'E' :
+            if(Y==N-1){
+            cout<<"No Puedes salir del tablero"<<endl;
+            return -1;
+            }
+            if(Tablero[X][Y+1]== 0){
+            Tablero[X][Y]= 0;
+            Y++;
+            Tablero[X][Y]= 2;
+            return 0;
+            }if(Tablero[X][Y+1]== 1){
+            V--;
+            if(V==0){
+            return 2;
+            }if(Tablero[X][Y+1]== 3){
+            return 3;
+            }
+            return 1;
+            }
+          break;
+
       case 'O' :
              if(Y==0){
             cout<<"No Puedes salir del tablero"<<endl;
@@ -187,12 +203,13 @@ void Juego::Mostrar(){
             Tablero[X][Y]= 2;
             return 0;
             }if(Tablero[X][Y-1]== 1){
-            contV--;
-            return 1;
-            }if(contV==0){
+            V--;
+            if(V==0){
             return 2;
             }if(Tablero[X][Y-1]== 3){
             return 3;
+            }
+            return 1;
             }
          break;
       default :
@@ -200,3 +217,23 @@ void Juego::Mostrar(){
    }
 }
 
+int Juego::explorar(int r){
+
+int u=0;
+
+for (int i=1;i<r;i++){
+
+if ((Tablero[X][Y+i]== 1)&&(Y+i<=N) ){
+    u++;
+}
+if ((Tablero[X][Y-i]==1) && (Y-i>=0) ){
+    u++;
+}
+if ((Tablero[X-i][Y]== 1)&&(X-i>=0)){
+    u++;
+}
+if ((Tablero[X+i][Y]== 1)&&(X+i<=N)){
+    u++;
+}}
+return u;
+}
