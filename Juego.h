@@ -6,7 +6,7 @@ class Juego
 {
     private:
         int **Tablero;  // Matriz del tablero
-        int N, B, V, X, Y; // Numero de filas y columnas, Bombas, Vidas, Pos X, Pos y
+        int N, B, V, X=0, Y=0; // Numero de filas y columnas, Bombas, Vidas, Pos X, Pos y
 
     public:
         Juego();

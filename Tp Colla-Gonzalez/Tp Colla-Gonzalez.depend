@@ -39,3 +39,23 @@
 	<stdlib.h>
 	<time.h>
 
+1592159358 source:c:\users\koi\desktop\trabajo-final-\juego.cpp
+	"Juego.h"
+	<iostream>
+	<string.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1592157552 c:\users\koi\desktop\trabajo-final-\juego.h
+
+1592159444 source:c:\users\koi\desktop\trabajo-final-\juego_main.cpp
+	"Juego.h"
+	<iostream>
+	<string.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

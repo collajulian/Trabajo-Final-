@@ -52,12 +52,17 @@ for(int i=0;i<k.N;i++){
 }
 
 void Juego::Llenar(){
+
 int aux=0,cx=0,cy=0;
 srand(time (NULL));
 
     for(int i=0;i<N;i++){
         for(int j=0;j<N;j++){
-          Tablero[i][j]=0;
+          if (Tablero[i][j]==Tablero[0][0]){
+            Tablero[i][j] = 2;
+          }else{
+          Tablero[i][j] = 0;
+          }
     }
 }
 
@@ -89,66 +94,109 @@ void Juego::Mostrar(){
 
     for(int i=0;i<N;i++){
         for(int j=0;j<N;j++){
-            cout<<Tablero[i][j];
-    }
+           switch(Tablero[i][j]){
+          case 0:
+              cout<<"X ";
+              break;
+          case 1:
+              cout<<"B ";
+              break;
+          case 2:
+              cout<<"J ";
+              break;
+          case 3:
+              cout<<"T ";
+              break;
+
+
+    }}
     cout<<endl;
 }
 }
 
 
  int Juego::Mover(char m){
+    int contV=V;
     m=toupper(m);
      switch(m) {
       case 'N' :
         if(X==0){
-            cout<<"No se puede hacer el movimiento porque estas en el borde del tablero"<<endl;
+            cout<<"No Puedes salir del tablero"<<endl;
             return -1;
         }
-        if(Tablero[X-1][Y]== 'X'){
-            Tablero[X][Y]= 'X';
+        if(Tablero[X-1][Y]== 0){
+            Tablero[X][Y]= 0;
             X--;
-            Tablero[X][Y]= 'J';
+            Tablero[X][Y]= 2;
             return 0;
-        }
+        }if(Tablero[X-1][Y]== 1){
+            contV--;
+            return 1;
+            }if(contV==0){
+            return 2;
+            }if(Tablero[X-1][Y]== 3){
+            return 3;
+            }
          break;
       case 'E' :
             if(Y==N-1){
-            cout<<"No se puede hacer el movimiento porque estas en el borde del tablero"<<endl;
+            cout<<"No Puedes salir del tablero"<<endl;
             return -1;
             }
-            if(Tablero[X][Y+1]== 'X'){
-            Tablero[X][Y]= 'X';
+            if(Tablero[X][Y+1]== 0){
+            Tablero[X][Y]= 0;
             Y++;
-            Tablero[X][Y]= 'J';
+            Tablero[X][Y]= 2;
             return 0;
+            }if(Tablero[X][Y+1]== 1){
+            contV--;
+            return 1;
+            }if(contV==0){
+            return 2;
+            }if(Tablero[X][Y+1]== 3){
+            return 3;
             }
           break;
       case 'S' :
             if(X==N-1){
-            cout<<"No se puede hacer el movimiento porque estas en el borde del tablero"<<endl;
+            cout<<"No Puedes salir del tablero"<<endl;
             return -1;
             }
-            if(Tablero[X+1][Y]== 'X'){
-            Tablero[X][Y]= 'X';
+            if(Tablero[X+1][Y]== 0){
+            Tablero[X][Y]= 0;
             X++;
-            Tablero[X][Y]= 'J';
+            Tablero[X][Y]= 2;
             return 0;
+            }if(Tablero[X+1][Y]== 1){
+            contV--;
+            return 1;
+            }if(contV==0){
+            return 2;
+            }if(Tablero[X+1][Y]== 3){
+            return 3;
             }
          break;
       case 'O' :
              if(Y==0){
-            cout<<"No se puede hacer el movimiento porque estas en el borde del tablero"<<endl;
+            cout<<"No Puedes salir del tablero"<<endl;
             return -1;
             }
-            if(Tablero[X][Y-1]== 'X'){
-            Tablero[X][Y]= 'X';
+            if(Tablero[X][Y-1]== 0){
+            Tablero[X][Y]= 0;
             Y--;
-            Tablero[X][Y]= 'J';
+            Tablero[X][Y]= 2;
             return 0;
+            }if(Tablero[X][Y-1]== 1){
+            contV--;
+            return 1;
+            }if(contV==0){
+            return 2;
+            }if(Tablero[X][Y-1]== 3){
+            return 3;
             }
          break;
       default :
-         cout << "Esa tecla es incorrecta, intenta otra" << endl;
+         cout << "Tecla incorrecta" << endl;
    }
 }
 
