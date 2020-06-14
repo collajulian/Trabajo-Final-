@@ -223,7 +223,7 @@ int u=0;
 
 for (int i=1;i<r;i++){
 
-if ((Tablero[X][Y+i]== 1)&&(Y+i<=N) ){
+if ((Tablero[X][Y+i]== 1)&&(Y+i<N) ){
     u++;
 }
 if ((Tablero[X][Y-i]==1) && (Y-i>=0) ){
@@ -232,7 +232,7 @@ if ((Tablero[X][Y-i]==1) && (Y-i>=0) ){
 if ((Tablero[X-i][Y]== 1)&&(X-i>=0)){
     u++;
 }
-if ((Tablero[X+i][Y]== 1)&&(X+i<=N)){
+if ((Tablero[X+i][Y]== 1)&&(X+i<N)){
     u++;
 }}
 return u;
