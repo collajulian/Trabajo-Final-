@@ -39,7 +39,7 @@
 	<stdlib.h>
 	<time.h>
 
-1592166061 source:c:\users\koi\desktop\trabajo-final-\juego.cpp
+1592174487 source:c:\users\koi\desktop\trabajo-final-\juego.cpp
 	"Juego.h"
 	<iostream>
 	<string.h>
@@ -48,9 +48,9 @@
 	<stdlib.h>
 	<time.h>
 
-1592163067 c:\users\koi\desktop\trabajo-final-\juego.h
+1592174487 c:\users\koi\desktop\trabajo-final-\juego.h
 
-1592166304 source:c:\users\koi\desktop\trabajo-final-\juego_main.cpp
+1592174487 source:c:\users\koi\desktop\trabajo-final-\juego_main.cpp
 	"Juego.h"
 	<iostream>
 	<string.h>
